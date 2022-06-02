@@ -65,4 +65,8 @@ const medida = {
     }
 }
 
-console.log(medida.metadeAltura())
+console.log(medida.metadeAltura());
+
+
+// Alguns métodos nativos do object
+console.log(pessoa.hasOwnProperty('nome')); // verifica se a propriedade existe dentro do objeto
