@@ -63,11 +63,24 @@ window.addEventListener('resize', callback);
 window.addEventListener('keydown', callback);
 
 
-// Keyboard | adicionando atalhos através dos eventos de keyboard
+// Keyboard | adicionando atalhos através dos eventos de keydown
 function callback(event) {
     if (event.key === 'a') {
-        console.log('apertou a tecla A')
+        console.log('apertou a tecla A');
     }
 }
 
-window.addEventListener('keydown', callback)
+window.addEventListener('keydown', callback);
+
+
+// forEach e Eventos | 
+
+const imagens = document.querySelector('img');
+
+function handleImagem(event) {
+    console.log(event.target.getAttribute('src'));
+}
+
+imagens.forEach((img) => {
+    img.addEventListener('click', handleImagem );
+})
