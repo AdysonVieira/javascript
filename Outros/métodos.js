@@ -5,4 +5,4 @@ const curso = {
     }
 }
 
-console.log(curso.nome)
+curso.completar()
