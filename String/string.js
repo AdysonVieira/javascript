@@ -1,6 +1,6 @@
 // Construtores de String | toda string possui os métodos e propriedades do proptotype de String
 
-const nome = 'Adyson Vieira' // retorna string
+const nome = 'Adyson Vieira Santos' // retorna string
 const nome2 = new String('Adyson Vieira') // retorna objeto
 
 
@@ -27,3 +27,27 @@ nome.lastIndexOf('y') // 2 | retorna qual indice está o ultimo caracter passado
 const precos = ['R$99', 'R$199', 'R$11999']
 
 precos.forEach(preco => console.log(preco.padStart(20,'-')))
+
+nome2.repeat(10) // repete a string 10 vezes
+
+
+// nome.replace(regexp|substring, newString|function)
+let preco = "R$599.00"
+preco = preco.replace('.', ',')
+
+let listaNome = nome.replace(/[ ]+/g,', ') // troca os espaços em brancos por ', '
+
+const arrayNome = listaNome.split(', ') // divide a string e retorna um array
+
+const html = '<li>Item 1</li>' // string com um html
+const splitHtml = html.split('li') // separando tirando a tag li
+const joinHtml = splitHtml.join('div') // juntando com div
+
+nome.toLowerCase // adyson vieira santos | tudo em letra minúscula
+nome.toUpperCase // ADYSON VIEIRA SANTOS | tudo em letra maiúscula
+
+// let preco = '   500  '
+preco.trim() // "500" | remove espaços que possam estar no inicio e no final da string
+preco.trimStart() // "500  " | remove espaços que possam estar no inicio e no final da string
+preco.trimEnd() // "    500" | remove espaços que possam estar no inicio e no final da string
+
