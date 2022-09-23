@@ -63,7 +63,7 @@ carros.reverse() // ['Ford', 'Ferrari', 'Kia', 'Gol'] | inverte a ordem da array
 
 // [].splice(index, remover, item1, item2, ...) | adiciona e itens dentro da array
 carros // ['Gol', 'Kia', 'Ferrari', 'Ford']
-carros.splice(1, 0, 'Corolla', 'Fusion') // a partir do índice 1 adiciona os itens passados e não remove nenhum | retorna os itens removidos
+carros.splice(2, 0, 'Corolla', 'Fusion') // a partir do índice 1 adiciona os itens passados e não remove nenhum | retorna os itens removidos
 carros // ['Gol', 'Kia', 'Corolla', 'Fusion', 'Ferrari', 'Ford']
 
 carros.splice(3, 2, 'Logan') // a partir do índice 3 adiciona Logan e remove 2 itens ['Fusion','Ferrari']
@@ -81,3 +81,31 @@ carros.fill('Fusca', 1, 3) // ['Gol', 'Fusca', 'Fusca', 'Kia', 'Ford']
 
 
 // Métodos de Acesso de array do construtor Array sem modificar
+
+// [].concat() | concatena arrays
+const array1 = ['item1', 'item2']
+const array2 = ['item3', 'item4']
+const arrayConcat = array1.concat(array2) // ['item1', 'item2', 'item3', 'item4']
+
+const arrayConcat2 = [].concat(array1, array2, 'item5') // ['item1', 'item2', 'item3', 'item4', 'item5']
+
+// [].includes(), [].indexOf(), [].lastIndexOf() | Verifica se contém e retorna
+array1.includes('item1') // true | verifica se o valor está incluso na array
+array1.indexOf('item1') // 0 | retorna o índice do primeiro item encontrado
+array1.LastindexOf('item1') // 0 | retorna o índice do ultimo item encontrado
+
+// [].join(separador) | Junta todos os valores de uma array e retorna uma string
+array1.join() // 'item1, item2'
+array1.join(' ') // 'item1 item2'
+array1.join('-_-') // 'item1-_-item2'
+
+let html = '<h2>Hello World</h2>'
+html.split('h2') // ['<', '>Hello World</', '>'] // cria um array com itens separados pelo h2 
+html.join('p') // '<p>Hello World</p>'
+
+// [].slice(inicio, final) | retorna os itens da array passados como argumento
+carros // ['Gol', 'Kia', 'Gol', 'Kia', 'Ford']
+carros.slice(2) // ['Gol', 'Kia', 'Ford'] | retorna a partir do indice 2 até o final da array
+carros.slice(1, 4) // ['Kia', 'Gol', 'Kia'] | retorna entre os índices 1 e 4 
+
+const marcas = carros.slice() // ['Gol', 'Kia', 'Gol', 'Kia', 'Ford'] | clona a array
