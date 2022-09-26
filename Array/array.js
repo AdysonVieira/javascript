@@ -140,6 +140,72 @@
 // // Quando quiser apenas interagir com os elementos, como adicionar classes, usar o forEach
 // // Quando precisar de uma nova array com os valores modificados, usar o map
 
+// const aulas = [
+//     {
+//         nome: 'HTML',
+//         min: 15
+//     },
+//     {
+//         nome: 'CSS',
+//         min: 20
+//     },
+//     {
+//         nome: 'JS',
+//         min: 12
+//     },
+//     {
+//         nome: 'SASS',
+//         min: 9
+//     },
+// ]
+
+// const tempoAulas = aulas.map((aula) => {
+//     return aula.min
+// }) // retorna uma nova array [15, 20, 12, 9]
+
+
+// // [].reduce(callback(acumulador, item, index, array), valorInicialAcumulador) | o acumulador recebe a iteração de cada item
+
+// const totalAulas = tempoAulas.reduce((acumulador, aula) => {
+//     return acumulador + aula
+// }, 0)
+
+// const maiorAula = tempoAulas.reduce((acumulador, aula) => {
+//     return acumulador > aula ? acumulador : aula
+// }, 0)
+
+// // encadeando um método no outro
+// const totalTempoAula = aulas.map((aula) => aula.min).reduce((acumulador, min) => acumulador + min, 0)
+// const maiorTempoAula = aulas.map((aula) => aula.min).reduce((acumulador, min) => acumulador > min ? acumulador : min, 0)
+// console.log(maiorAula)
+
+// // [].reduceRight() | inicia do final da array para o começo
+// console.log(tempoAulas.reduceRight((acc, aula) => acc + ' ' + aula))
+// console.log(typeof(10 + ' '))
+
+
+// [].some() | se algum elemento da iteração for verdadeiro ele retorna true
+const frutas = ['banana', 'laranja', 'uva', '']
+const some = frutas.some((fruta) => fruta === 'uva') // true
+console.log(some)
+
+// [].every() | se algum elemento da iteração for falso ele retorna falso
+const every = frutas.every((fruta) => !!fruta)
+console.log(every)
+
+// [].find() | retorna o primeiro item verdadeiro buscado
+const numeros = [2, 10, 50, 88, 129, 300, 2, 15]
+const maiorQue50 = numeros.find(numero => numero > 50) // 88
+console.log(maiorQue50)
+
+// [].findIndex() | retorna o índice do primeiro item verdadeiro buscado
+const procuraIndice = frutas.findIndex(fruta => fruta === 'uva')
+console.log(procuraIndice)
+
+// [].filter() | retorna uma array com todos os itens verdadeiros da iteração
+const maiorQue60 = numeros.filter(numero => numero > 60)
+console.log(maiorQue60)
+
 const aulas = [
     {
         nome: 'HTML',
@@ -159,27 +225,5 @@ const aulas = [
     },
 ]
 
-const tempoAulas = aulas.map((aula) => {
-    return aula.min
-}) // retorna uma nova array [15, 20, 12, 9]
-
-
-// [].reduce(callback(acumulador, item, index, array), valorInicial) | o acumulador recebe a iteração de cada item
-
-const totalAulas = tempoAulas.reduce((acumulador, aula) => {
-    return acumulador + aula
-}, 0)
-
-const maiorAula = tempoAulas.reduce((acumulador, aula) => {
-    return acumulador > aula ? acumulador : aula
-}, 0)
-
-// encadeando um método no outro
-const minAulas = aulas.map((aula) => aula.min).reduce((acumulador, min) => acumulador + min, 0)
-const maiorTempoAula = aulas.map((aula) => aula.min).reduce((acumulador, min) => acumulador > min ? acumulador : min, 0)
-console.log(maiorAula)
-
-// [].reduceRight() | inicia do final da array para o começo
-console.log(tempoAulas.reduceRight((acc, aula) => acc + ' ' + aula))
-console.log(typeof(10 + ' '))
-
+const maiores15 = aulas.filter(aula => aula.min > 15)
+console.log(maiores15)
