@@ -52,3 +52,64 @@ Object.assign(motos , funcaoAutomovel, carro) // retorna o objeto motos com o os
 
 console.log(motos.fabricante('Honda').buzinar())
 
+
+
+
+// Object.defineProperties() | define as propriedades de forma imutável
+
+const bicicletas = {}
+
+Object.defineProperties(bicicletas, {
+    rodas: {
+        value: 2,
+        configurable: false, // define se a propriedade pode ou não ser alterada ou deletada | rodas dentro do objeto bicicletas não pode ser alterada ou deletada
+        writable: true, // a propriedade pode ser alterada mas não pode ser deletada
+        enumerable: true, // permite que a propriedade seja enumerada    
+    },
+    pneus: {
+        enumerable: true,
+        get() {
+            return this._pneus
+        },
+        set(valor) {
+            this._pneus = valor + 1 + ' pneus reserva'
+        }
+    }
+})
+
+bicicletas.pneus = 2
+console.log(bicicletas.pneus)
+
+
+
+
+// Object.getOwnPropertyDescriptor(objeto) | lista todas as propriedades e métodos de um objeto e suas devidas configurações
+
+const bikeConfig = Object.getOwnPropertyDescriptors(bicicletas, 'rodas')
+console.log(bikeConfig.configurable)
+
+
+
+// Object.key(objeto), Object.values(objeto) e Object.entries(objeto)
+
+Object.keys(bicicletas) // [ 'rodas', 'pneus', '_pneus' ] | retorna as chaves do objeto
+Object.values(bicicletas) // [ 2, '3 pneus reserva', '3 pneus reserva' ] | retorna os valores do objeto
+Object.entries(bicicletas) // [ 'rodas', 2 ], [ 'pneus', '3 pneus reserva' ], [ '_pneus', '3 pneus reserva' ] | retorna um array com chave e valor do objeto
+
+
+
+// Object.getOwnPropertyNames(objeto)
+
+console.log(Object.getOwnPropertyNames(bicicletas)) // retorna uma array com todas as propriedades do objeto
+Object.getOwnPropertyNames(motos.prototype)
+
+
+// Object.is(valor1, valor2) | retorna true ou false se o valor passado é igual ao outro
+
+const frutas1 = ['Uva', 'Laranja']
+const frutas2 = ['Uva', 'Laranja']
+
+const novaFrutas = frutas1
+
+Object.is(frutas1, frutas2) // false
+Object.is(frutas1, novaFrutas) // true
