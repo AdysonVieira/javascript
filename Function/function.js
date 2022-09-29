@@ -28,8 +28,20 @@ const filtro1 = Array.prototype.filter.call(li , mostraAtivo)
 const filtro2 = Array.prototype.filter.apply(li , [mostraAtivo])
 
 
-// function.bind(this, arg1, arg2) | não ativa a função
+// function.bind(this, arg1, arg2) | serve para usar métodos e propriedades de outros objetos, ligando eles
+const carro = {
+    marca: 'Ford',
+    ano: '2020',
+    acelerar(velocidade, tempo) {
+        return `${this.marca} acelerou ${velocidade} em ${tempo} segundos`
+    }
+}
 
-const filtro3 = Array.prototype.filter.bind(li , mostraAtivo)
-console.log(filtro3) // mostra apenas que é uma função
-console.log(filtro3()) // ativa a função
+console.log(carro.acelerar(100, 10))
+
+const honda = {
+    marca: 'Honda'
+}
+
+const aceleraHonda = carro.acelerar.bind(honda) // usando o método de carro usando outra propriedade de outro objeto
+console.log(aceleraHonda(120, 5))
