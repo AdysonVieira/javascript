@@ -1,7 +1,7 @@
 // Retorne a soma total de caracteres dos
 // parágrafos acima utilizando reduce
 const paragrafos = Array.from(document.querySelectorAll('p'));
-const totalCaractere = paragrafos.reduce.call(paragrafos,(acc, paragrafo) => {
+const totalCaractere = paragrafos.reduce((acc, paragrafo) => {
     return acc + paragrafo.innerText.replace(' ', '').length
 }, 0)
 
@@ -11,13 +11,10 @@ const totalCarac = Array.prototype.reduce.call(paragraphos, (acc, paragrafo) => 
 }, 0)
 
 console.log(totalCarac)
+
 // Crie uma função que retorne novos elementos
 // html, com os seguintes parâmetros
 // tag, classe e conteudo.
-
-function newElement(tag, classe, conteudo) {
-    return `<${tag} class="${classe}">${conteudo}</${tag}>` 
-}
 
 function novoElemento(tag, classe, conteudo) {
     let elemento = document.createElement(tag);
