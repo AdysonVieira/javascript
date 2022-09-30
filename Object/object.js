@@ -85,8 +85,8 @@ console.log(bicicletas.pneus)
 
 // Object.getOwnPropertyDescriptor(objeto) | lista todas as propriedades e métodos de um objeto e suas devidas configurações
 
-const bikeConfig = Object.getOwnPropertyDescriptors(bicicletas, 'rodas')
-console.log(bikeConfig.configurable)
+// const bikeConfig = Object.getOwnPropertyDescriptors(bicicletas, 'rodas')
+// console.log(bikeConfig.configurable)
 
 
 
@@ -113,3 +113,37 @@ const novaFrutas = frutas1
 
 Object.is(frutas1, frutas2) // false
 Object.is(frutas1, novaFrutas) // true
+
+
+// Object.freeze() | Impede qualquer mudança nas propriedades
+const carros = {
+    mala: true,
+    rodas: 4
+}
+
+Object.freeze(carros) // não permite a mudança
+carros.mala = 8
+Object.isFrozen(carros) // true | retorna verdadeiro ou false se o objeto está congelado
+
+
+// Object.seal() | previne a adição de novas propriedades e remoção das propriedades, mas permite que as atuais sejam modificadas
+const carros = {
+    mala: true,
+    rodas: 4
+}
+
+Object.seal(carros)
+carros.mala = false // altera o valor
+carros.andar = true // previnine a adição da propriedade
+Object.isSealed(carros) // true
+
+
+//Object.preventExtensions() | previne a adição de novas propriedades
+const carros = {
+    mala: true,
+    rodas: 4
+}
+
+Object.preventExtensions(carros)
+carros.andar = true // previnine a adição da propriedade
+console.log(Object.isExtensible(carros)) // false | 
