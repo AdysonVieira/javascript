@@ -1,0 +1,11 @@
+[data-cor="azul"] {
+    color: blue;
+}
+
+[data-cor="vermelho"] {
+    color:red
+}
+
+[data-font-size="36"] {
+    font-size: 36px;
+}

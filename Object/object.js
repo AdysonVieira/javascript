@@ -147,3 +147,27 @@ const carros = {
 Object.preventExtensions(carros)
 carros.andar = true // previnine a adição da propriedade
 console.log(Object.isExtensible(carros)) // false | 
+
+
+
+// Propriedades e Métodos do protótipo
+
+const frutas = ['Banana', 'Uva']
+console.log(frutas.constructor); // Array
+
+const nome = 'Adyson'
+console.log(nome.constructor); // String
+
+// {}.hasOwnProperty(propriedade) | verifica se existe a propriedade no objeto, não no protótipo
+
+frutas.hasOwnProperty('map') // false
+Array.hasOwnProperty('map') // false
+Array.prototype.hasOwnProperty('map') // true
+
+Array.prototype.propertyIsEnumerable('map') // false
+window.propertyIsEnumerable('innerHeaight') // true
+
+// {}.isPrototypeOf(valor) | verifica se é protótipo do valor passado
+const frutas = ['Banana', 'Uva']
+
+Array.prototype.isPrototypeOf(frutas) // true
