@@ -1,0 +1,38 @@
+body {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
+}
+
+#controles {
+    background-color: rgb(245, 241, 241);
+    font: 1em monospace;
+    font-weight: 500;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+form label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+form input {
+    display: block;
+    margin-bottom: 1.8rem;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select {
+    padding: 0.4rem;
+    border: 1px solid #d4d4d4;
+}
+
+.css {
+    font-size: 1rem;
+    color: rgb(63, 63, 63);
+}

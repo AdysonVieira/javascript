@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Creator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <form id="controles">
+            <label for="texto">texto</label>
+            <input type="text" name="texto" id="texto">
+
+            <label for="color">color</label>
+            <input type="color" name="color" id="color">
+            
+            <label for="backgroundColor">background-color</label>
+            <input type="color" name="backgroundColor" id="backgroundColor">
+            
+            <label for="height">height</label>
+            <input type="range" name="height" id="height" min="0" max="200" step="2">
+            
+            <label for="width">width</label>
+            <input type="range" name="width" id="width" min="0" max="600" step="6">
+
+            <label for="border">border</label>
+            <input type="text" name="border" id="border" placeholder="size line color">
+
+            <label for="borderRadius">border-radius</label>
+            <input type="range" name="borderRadius" id="borderRadius" min="0" max="20" step="5">
+
+            <label for="fontFamily">font-family</label>
+            <select name="fontFamily" id="fontFamily">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="monospace">Monospace</option>
+            </select>
+
+            <label for="fontSize">font-size</label>
+            <input type="number" name="fontSize" id="fontSize" placeholder="12">
+        </form>
+    </section>
+    <section class="resultado">
+        <button class="btn">Criar Estilo</button>
+        <pre><code class="css">
+        </code></pre>
+    </section>
+    <script src="main.js"></script>
+</body>
+</html>
