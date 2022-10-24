@@ -1,0 +1,1 @@
+// Fetch API | Permite fazermos requisições HTTP através do método fetch(). Este método retorna a resolução de uma Promise. Podemos então utilizar o .then para interagirmos com a resposta, que é um objeto do tipo Response
