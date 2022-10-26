@@ -42,13 +42,52 @@ function buscarCEP(event) {
 
 function mostrar(event) {
     event.preventDefault();
-    console.log(endereco)
+    localStorage.cepPrefer = JSON.stringify(endereco)
+    console.log(JSON.parse(localStorage.cepPrefer))
 }
+
+
+
+
+
+
+
 
 // Utilizando a API https://blockchain.info/ticker
 // retorne no DOM o valor de compra da bitcoin and reais.
 // atualize este valor a cada 30s
+function bitcoinBuy() {
+    fetch('https://blockchain.info/ticker')
+    .then(response => response.json())
+    .then(response => {
+        let valor = response.BRL.buy;
+        const btcDisplay = document.querySelector('.btcDisplay');
+        btcDisplay.innerText = `O valor de compra do Bitcoin em reais é ${valor.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`;
+    })
+}
+
+bitcoinBuy()
+setInterval( bitcoinBuy, 30000)
+
+
+
+
+
 
 // Utilizando a API https://api.chucknorris.io/jokes/random
 // retorne uma piada randomica do chucknorris, toda vez que
 // clicar em próxima
+
+document.getElementById('next').addEventListener('click', chuckNorrisJoke)
+
+function chuckNorrisJoke() {
+    fetch('https://api.chucknorris.io/jokes/random')
+    .then( response => response.json() )
+    .then( response => {
+        const joke = response.value;
+        const jokeDisplay = document.querySelector('.jokeDisplay');
+        jokeDisplay.innerText = joke;
+    })
+}
+
+chuckNorrisJoke()

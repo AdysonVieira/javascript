@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "aula": "Javascript",
+        "minutos": 50
+    },
+    {
+        "id": 2,
+        "aula": "HTML",
+        "minutos": 10
+    },
+    {
+        "id": 3,
+        "aula": "CSS",
+        "minutos": 20
+    }
+]
