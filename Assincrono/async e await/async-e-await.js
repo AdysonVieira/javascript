@@ -1,0 +1,1 @@
+// async / await | A palavra chave async indica que a função possui partes assícronas e que você pretende esperar a resolução da mesma antes de continuar. O await irá indicar a promisse que devemos esperar. Faz parte do ES8 
