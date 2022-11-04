@@ -18,7 +18,8 @@ const aniversario = new Date('dec 31 2022 23:59')
 
 
 // Contando dias
-const promocao = new Date('oct 21 2022 23:59')
+const agora = new Date();
+const promocao = new Date('dec 21 2022 23:59')
 
 function calculaDias(tempo) {
     return tempo / (24 * 60 * 60 * 1000)
@@ -27,4 +28,4 @@ function calculaDias(tempo) {
 const diasAgora = Math.floor(calculaDias(agora.getTime()))
 const diasPromocao = Math.floor(calculaDias(promocao.getTime()))
 
-console.log(`Faltam ${diasPromocao - diasAgora} dias para a promoção`)
+console.log(`Faltam ${diasPromocao - diasAgora} dias para a promoção`, diasAgora, diasPromocao)

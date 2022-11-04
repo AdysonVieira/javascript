@@ -145,3 +145,109 @@ class Button {
 const novoBotao = new Button('Botão', 'black')
 novoBotao.element = 'a' // dessa forma é setado o valor
 console.log(novoBotao.element) // dessa forma é pegado o valor
+
+
+
+
+
+
+// Extends e Subclasses | É possível criarmos uma subclasse, esta irá ter acesso aos métodos da classe à qual ela estendeu através do seu protótipo
+
+class Veiculo { // Classe mais genérica
+    construtor(rodas) {
+        this.rodas = rodas
+    }
+    acelerar() {
+        console.log('Acelerou')
+    }
+}
+
+class Moto extends Veiculo {
+    empinar(){
+        console.log('Moto empinou com ' + this.rodas + ' rodas')
+        console.log(this.rodas)
+    }
+}
+
+const cg160 = new Moto(2)
+
+console.log(cg160.empinar())
+
+
+
+
+
+// Sobrescrever métodos
+
+class Veiculo { // Classe mais genérica
+    construtor(rodas) {
+        this.rodas = rodas
+    }
+    acelerar() {
+        console.log('Acelerou')
+    }
+}
+
+class Moto extends Veiculo {
+    acelerar() { // sobrescreve o métodos, busca primeiro o método de Moto, mas não apaga o método de veículo
+        console.log('Só a moto acelerou')
+    }
+    empinar() {
+        console.log('Moto empinou com ' + this.rodas + ' rodas')
+        console.log(this.rodas)
+    }
+}
+
+const titan = new Moto(2)
+
+console.log(titan.acelerar())
+
+
+
+
+
+
+// Super | É possível utilizar a palavra chave super para falarmos com a classe pai e acessarmos o seus métodos e propriedades.
+class Veiculo {
+    constructor(rodas){
+        this.rodas = rodas
+    }
+    acelerar() {
+        console.log('Veiculo acelerou')
+    }
+}
+
+class Moto extends Veiculo {
+    acelerar() {
+        super.acelerar() // super seria a mesma coisa de usar Veiculo.acelerar()
+        console.log('Moto acelerou')
+    }
+}
+
+const titan = new Moto(2)
+console.log(titan.acelerar())
+
+
+// Super e Constructor
+class Veiculo {
+    constructor(rodas, combustivel) {
+        this.rodas = rodas
+        this.combustivel = combustivel
+    }
+    acelerou() {
+        console.log('Acelerou')
+    }
+}
+
+class Moto extends Veiculo {
+    constructor(rodas, combustivel, capacete) {
+        super(rodas, combustivel)
+        this.capacete = capacete
+    }
+    acelerar() {
+        console.log('Moto ' + this.rodas, this.capacete)
+    }
+}
+
+const titan = new Moto(2, 'gasolina', true)
+console.log(titan.acelerar())
