@@ -115,7 +115,7 @@ console.log(Botao.novoBotao('Botão Novinho'))
 
 const frutas = {
     lista: [],
-    set novaFruta(fruta) { // set não é um método, não precisa ativar com os ()
+    set novaFruta(fruta) { // set e get não precisa ativar com os ()
         this.lista.push(fruta)
     }
 }
@@ -137,14 +137,14 @@ class Button {
         buttonElement.style.color = this.color
         return buttonElement
     }
-    set element(type) {
+    set element(type) { // o set precisa ter pelo menos 1 parametro
         this._elementType = type
     }
 }
 
 const novoBotao = new Button('Botão', 'black')
-novoBotao.element = 'a' // dessa forma é setado o valor
-console.log(novoBotao.element) // dessa forma é pegado o valor
+novoBotao.element = 'a' // set | dessa forma é setado o valor
+console.log(novoBotao.element) // get | dessa forma é pegado o valor
 
 
 
