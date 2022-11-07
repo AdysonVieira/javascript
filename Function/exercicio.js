@@ -28,3 +28,20 @@ function novoElemento(tag, classe, conteudo) {
 
 const h1Elemento = novoElemento.bind(null, 'h1', 'titulo');
 console.log(h1Elemento('retornando'))
+
+// Remova o erro
+const priceNumber = n => +n.replace('R$', '').replace(',', '.');
+priceNumber('R$ 99,99');
+
+// Crie uma IIFE e isole o escopo
+// de qualquer código JS.
+(function() {
+    console.log('Isolada')
+})();
+
+// Como podemos utilizar
+// a função abaixo.
+const active = callback => callback();
+active((function() {
+    console.log('ativou')
+}))

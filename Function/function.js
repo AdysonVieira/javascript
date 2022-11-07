@@ -45,3 +45,34 @@ const honda = {
 
 const aceleraHonda = carro.acelerar.bind(honda) // usando o método de carro usando outra propriedade de outro objeto
 console.log(aceleraHonda(120, 5))
+
+
+
+
+// Function declaration vs Function Expression
+
+function somar(a, b) { // declaration | declarada com a palavra chave function
+    return a + b
+}
+
+const somar = function(a, b) { // expression | declarada dentro de uma variável
+    return a + b
+}
+
+
+// Hoisting | Function Expression não sofre o hoisting
+
+console.log(somar(2, 3)) // 5
+function somar(a, b) { 
+    return a + b
+}
+
+console.log(somar(2, 3)) // erro
+const somar = function(a, b) {
+    return a + b
+}
+
+
+// Arrow functions
+
+const somar = (a, b) => a + b
