@@ -45,3 +45,44 @@ const active = callback => callback();
 active((function() {
     console.log('ativou')
 }))
+
+
+
+
+
+
+
+function $$(selectedElement) {
+    const elements = document.querySelectorAll(selectedElement)
+
+    function hide() {
+        elements.forEach( element => {
+            element.style.display = 'none'
+        })
+        return $$(selectedElement)
+    }
+
+    function show() {
+        elements.forEach(element => {
+            element.style.display = 'initial'
+        })
+        return $$(selectedElement)
+    }
+    
+    function on(onEvent, callback) {
+        elements.forEach( element => {
+            element.addEventListener(onEvent, callback)
+        })
+        return $$(selectedElement)
+    }
+
+    return {
+        hide,
+        show,
+        on,
+    }
+}
+
+$$('li').on('click', (e) => {
+    e.target.classList.toggle('active')
+})

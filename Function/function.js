@@ -49,7 +49,7 @@ console.log(aceleraHonda(120, 5))
 
 
 
-// Function declaration vs Function Expression
+// Function Expression
 
 function somar(a, b) { // declaration | declarada com a palavra chave function
     return a + b
@@ -72,7 +72,117 @@ const somar = function(a, b) {
     return a + b
 }
 
-
 // Arrow functions
 
 const somar = (a, b) => a + b
+
+
+
+
+
+// Factory Function | São funções que retornam um objeto sem a necessidade de utilizarmos a palavra chave new. Possuem basicamente a mesma função que constructor functions / classes.
+
+function createButton(text) {
+    function element() {
+        const buttonElement = document.createElement('button');
+        buttonElement.innerText = text;
+        return buttonElement;
+    }
+    return {
+        element: element,
+        text: text,
+    }
+}
+
+// a vantagem da factory function é podermos criar métodos e variáveis privadas.
+function criarPessoa(nome, sobrenome) {
+    const nomeCompleto = `${nome} ${sobrenome}`
+
+    function andar() {
+        return `${nomeCompleto} andou`
+    }
+
+    function nadar() {
+        return `${nomeCompleto} nadou`
+    }
+
+    return {
+        nome,
+        sobrenome,
+        andar,
+        nadar,
+    }
+}
+
+// Ice Factory | Podemos impedir que os métodos e propriedades seham modificados com o Object.freeze()
+
+'use strict'
+
+function criarPessoa(nome) {
+    const nome = nome
+    function andar() {
+        return `${nome} andou`
+    }
+    
+    return Object.freeze({
+        nome,
+        andar,
+    })
+}
+
+
+
+
+// Factory Function vs Constructor Function | uma das vantagens é não precisar iniciar com a palavra new
+
+function Pessoa(nome) {
+    if(!(this instanceof Pessoa)) // ou (!new.target)
+    return new Pessoa(nome)
+    this.nome = nome
+}
+
+Pessoa.prototype.andar = function() {
+    return `${nome} andou`
+}
+
+const designer = Pessoa('Adyson')
+console.log(designer)
+
+
+
+
+
+// Exemplo Real
+
+function $$(selectedElement) {
+    const elements = document.querySelectorAll(selectedElement)
+
+    function hide() {
+        elements.forEach( element => {
+            element.style.display = 'none'
+        })
+        return $$(selectedElement)
+    }
+
+    function show() {
+        elements.forEach(e lement => {
+            element.style.display = 'initial'
+        })
+        return $$(selectedElement)
+    }
+    
+    function on(onEvent, callback) {
+        elements.forEach( element => {
+            element.addEventLinester(onEvent, callback)
+        })
+        return $$(selectedElement)
+    }
+
+    return {
+        hide,
+        show,
+        on,
+    }
+}
+
+const elemento = $$('li')
