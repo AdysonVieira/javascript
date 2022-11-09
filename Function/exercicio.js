@@ -51,7 +51,7 @@ active((function() {
 
 
 
-
+// JQUERY por baixo dos panos
 function $$(selectedElement) {
     const elements = document.querySelectorAll(selectedElement)
 
