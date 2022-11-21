@@ -23,6 +23,11 @@ console.log('Javascript'.replace(/a/g , 'e'))
 
 console.log('Pense na Principal'.replace(/p/gi, 'c'))
 
+// Flag:m | multiline: com o m informamos que devem ser buscado multilinhas
+
+console.log(`contato.com
+contato.com`.replace(/\w+$/gm, 'x'))
+
 
 // Character Class | se colocarmos os caracteres entre [] estamos definindo uma classe. /[ab]/ irá procurar por a ou por b
 
@@ -97,3 +102,20 @@ console.log('regex ou regexp'.replace(/regex|regexp/gi, '!')) // ! ou !
 console.log('propor ou proporcional'.replace(/propor/gi, '!')) // ! ou !cional
 console.log('propor ou proporcional'.replace(/\bpropor\b/gi, '!')) // ! ou proporcional
 
+
+// Anchor Beginning | Com o ^ é possível informar que a busca deve ser iniciada no início da linha
+console.log(`contato@email.com
+outroemail@email.com`.replace(/^\w+/g), 'x')
+
+// Anchor End | Com o $ é possível informar que a busca deve ser iniciada no final da linha
+console.log(`contato@email.com
+outroemail@email.com`.replace(/\w+$/g), 'x')
+
+// Unicode | busca pelo código unicode
+console.log('@'.replace(/\u0040/g, 'a'))
+
+// Substituição | usando o $& faz referencia a palava selecionada
+console.log('PHP e Java são diferentes'.replace(/Java/gi, '$&script'))
+
+
+// Grupo de Captura
