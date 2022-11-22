@@ -102,7 +102,6 @@ console.log('regex ou regexp'.replace(/regex|regexp/gi, '!')) // ! ou !
 console.log('propor ou proporcional'.replace(/propor/gi, '!')) // ! ou !cional
 console.log('propor ou proporcional'.replace(/\bpropor\b/gi, '!')) // ! ou proporcional
 
-
 // Anchor Beginning | Com o ^ é possível informar que a busca deve ser iniciada no início da linha
 console.log(`contato@email.com
 outroemail@email.com`.replace(/^\w+/g), 'x')
@@ -117,5 +116,11 @@ console.log('@'.replace(/\u0040/g, 'a'))
 // Substituição | usando o $& faz referencia a palava selecionada
 console.log('PHP e Java são diferentes'.replace(/Java/gi, '$&script'))
 
-
 // Grupo de Captura
+console.log('contato@email.com'.replace(/(\w+)@(\w.+)/g, '$1 $2'))
+
+// Positive Lookahead | Faz a captura do items dentro do (?=)
+console.log('100%, 5px, 5rem, 10px, 100vh'.replace(/\d+(?=px)/g, 'X'))
+
+// Negative Lookahead | Faz a captura do items dentro do (?!)
+console.log('100%, 5px, 5rem, 1px, 100vh'.replace(/\d+(?!px)/g, 'X'))
