@@ -1,8 +1,8 @@
-// Regular Expression | Regexp ou Regex são expressões utilizadas para realizarmos buscas/substituições de padrões em string. Os padrões devem ser colocados entre //. Geralmente vamos utilizá-las nos métodos .replace() e .split()
 
 // procura a
 const padraoRegexp = /a/
 
+// Regular Expression | Regexp ou Regex são expressões utilizadas para realizarmos buscas/substituições de padrões em string. Os padrões devem ser colocados entre //. Geralmente vamos utilizá-las nos métodos .replace() e .split()
 const texto = 'Javascript'
 const novoTexto = texto.replace(padraoRegexp, 'B')
 
@@ -62,11 +62,11 @@ console.log('1238384ASKJáááááHGAS'.replace(/[Á-ÿ]/gi, 'n'))
 // Negar | seleciona todas as letras e nega z e s
 console.log('Brazil, é com s de Brasil!'.replace(/[^a-z]/gi, 'a'))
 
-// Word | O /w irá selecionar qualquer caractere alfanumerico e  underline. É a mesma coisa que [A-Za-z0-9_]
+// Word | O \w irá selecionar qualquer caractere alfanumerico e  underline. É a mesma coisa que [A-Za-z0-9_]
 console.log('Guarda-chuva R$ 23,00'.replace(/\w/g, '!')) // !!!!!!-!!!!! !$ !!,!!
 
 
-// Word | O /W irá negar caractere alfanumerico e  underline. É a mesma coisa que [^A-Za-z0-9_]
+// Word | O \W irá negar caractere alfanumerico e  underline. É a mesma coisa que [^A-Za-z0-9_]
 console.log('Guarda-chuva R$ 23,00'.replace(/\W/g, '!')) // Guarda!chuva!R!!23!00
 
 
@@ -124,3 +124,100 @@ console.log('100%, 5px, 5rem, 10px, 100vh'.replace(/\d+(?=px)/g, 'X'))
 
 // Negative Lookahead | Faz a captura do items dentro do (?!)
 console.log('100%, 5px, 5rem, 1px, 100vh'.replace(/\d+(?!px)/g, 'X'))
+
+
+
+
+
+
+
+// Regexp Constructor
+const regexp = /\w+/gi
+
+const regexObj1 = new RegExp ('\\w+', 'gi') // com string usa \\ para escapar
+const regexObj2 = new RegExp (/\w+/, 'gi')
+
+console.log('Javascript Linguagem 101'.replace(regexObj1, 'X'))
+
+// propriedades do Construtor
+regexObj1.flags // gi
+regexObj1.global // true
+regexObj1.ignoreCase // true
+regexObj1.source // \w+
+regexObj1.lastIndex // 0 | mostra o último indice onde o aconteceu a seleção
+
+// métodos do Construtor
+
+// regex.test() | faz um loop toda fez que é chamado, começa de onde parou, retorna o primeiro true
+const regex = /Java/g
+const frase = 'Javascript e Java'
+
+console.log(regex.test(frase)) // true
+console.log(regex.test(frase)) // true
+console.log(regex.test(frase)) // false
+
+let i = 1
+while(regex.test(frase)) { // fazendo um loop enquanto Java estiver achando Java na string
+    console.log(i++, regex.lastIndex)
+}
+
+
+// regex.exec() | diferente do test(), o exec() irá retornar uma array com mais informações do que apenas um valor booleano
+
+const regex = /script/gi
+const frase = 'Javascript, TypeScript, CoffeeScript e Java'
+
+regex.exec(frase)
+
+
+// string.match(regex) | retorna um array com todas as seleções que deram true
+const regex = /[A-Za-z]+/gi
+const frase = 'Javascript, TypeScript, CoffeeScript e Java'
+
+console.log(frase.match(regex)) // [ 'Javascript', 'TypeScript', 'CoffeeScript', 'e', 'Java' ]
+
+
+// string.split(regex)
+const regex = /script/gi
+const frase = 'Javascript, TypeScript, CoffeeScript e Java'
+
+console.log(frase.split(regex)) // [ 'Java', 'Type', 'Coffee', 'e Java' ] | separa e exlui o que buscamos
+
+
+// string.replace(regex, callback)
+
+const tags = `
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>`
+
+const regex = /(?<=<)\w+/g  // positive lookbehind
+
+console.log(tags.replace(regex, '$& class="ativo"')) // $& é a próprie seleção, no caso as tags de abertura
+
+
+const emails = `
+contato@yahoo.com
+adyson@yahoo.com
+email@yahoo.com
+`
+
+const regex = /(\w+.?-?_?@)[\w+.-?]+/gi
+console.log(emails.replace(regex, '$1gmail.com'))
+
+
+// callback
+const emails = `
+contato@yahoo.com
+adyson@yahoo.com
+email@yahoo.com
+`
+
+const regex = /(\w+.?-?_?@)([\w+.-?]+)/gi
+emails.replace(regex, (...args) => {
+    console.log(args[0]) // retorna um array com informações de cada captura
+    if(args[2] === 'yahoo.com') {
+        console.log(args[1] + 'gmail.com')
+    }
+})
