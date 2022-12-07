@@ -12,6 +12,18 @@
         li:nth-of-type(odd) {
             background-color: rgba(0, 0, 0, 0.2);
         }
+
+        #cpf.valido {
+            border: 2px solid green;
+            outline-width: 2px;
+            outline-color: green;
+        }
+        
+        #cpf.invalido {
+            border: 2px solid red;
+            outline-width: 2px;
+            outline-color: red;
+        }
     </style>
 </head>
 <body>
@@ -25,6 +37,14 @@
         <li>666666.666-66</li>
         <li>777.777.777.77</li>
     </ul>
+    <form>
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" name="cpf">
+        
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email">
+    </form>
+    <script type="module" src="script.js"></script>
     <script src="limparCPF.js"></script>
 </body>
 </html>
