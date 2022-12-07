@@ -30,7 +30,7 @@ export default class ValidaCPF {
     adicionarEvento() {
         this.element.addEventListener('change', (event) => {
             const campo = this.validar(event.target.value)
-            campo ? event.target.value = campo : event.target.value
+            return campo ? event.target.value = campo : event.target.value
         })
     }
 }
