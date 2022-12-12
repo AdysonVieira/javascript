@@ -91,3 +91,26 @@ function handleKeyboard({key, keyCode, bubble}) { // Desestrutura o objeto event
 }
 
 document.addEventListener('keyup', handleKeyboard)
+
+
+
+// destructuring em parametro de funções
+
+const presentes = [
+    {
+        produto: "ventilador",
+        preco: 299 
+    },
+    {
+        produto: "geladeira",
+        preco: 3000
+    }
+]
+
+const mostraProduto = ({produto, preco}) => {
+    return produto + ' ' + preco
+}
+
+presentes.forEach(presente => {
+    console.log(mostraProduto(presente))
+})
